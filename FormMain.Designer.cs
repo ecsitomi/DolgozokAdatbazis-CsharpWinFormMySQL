@@ -133,8 +133,9 @@
             this.listBox_Dolgozok.FormattingEnabled = true;
             this.listBox_Dolgozok.Location = new System.Drawing.Point(13, 28);
             this.listBox_Dolgozok.Name = "listBox_Dolgozok";
-            this.listBox_Dolgozok.Size = new System.Drawing.Size(152, 407);
+            this.listBox_Dolgozok.Size = new System.Drawing.Size(152, 186);
             this.listBox_Dolgozok.TabIndex = 2;
+            this.listBox_Dolgozok.SelectedIndexChanged += new System.EventHandler(this.listBox_Dolgozok_SelectedIndexChanged);
             // 
             // groupBox_Kivalasztott
             // 
@@ -241,7 +242,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 471);
+            this.ClientSize = new System.Drawing.Size(426, 231);
             this.Controls.Add(this.groupBox_Kivalasztott);
             this.Controls.Add(this.listBox_Dolgozok);
             this.Controls.Add(this.menuStrip1);

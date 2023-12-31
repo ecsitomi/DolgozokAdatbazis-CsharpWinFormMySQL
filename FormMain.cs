@@ -17,25 +17,25 @@ namespace loginForm
             InitializeComponent();
         }
 
+        //Betöltéskor mit tegyen
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //Betöltéskor mit tegyen
             //Beállítja a születési naptár intervallumát
             dateTimePicker_Szul.MinDate = DateTime.Now.AddYears(-100);
             dateTimePicker_Szul.MaxDate = DateTime.Now.AddYears(-18);
             dateTimePicker_Szul.Value = DateTime.Now.AddYears(-30);
             listBox_Dolgozok.Items.Clear();
+            //listBox_Dolgozok.SelectedItem = -1; //elején ne válasszon ki senkit
+            //nem működik, automatikus kiválaszt, de végülis ez nem okoz gondot
 
             selectDolgozo(); // az adatbázis dolgozóit letöltöm egy listába és a listboxban megjelenítem
         }
-
         private void selectDolgozo()
         {
             List<Dolgozo> dolgozok = Program.db.selectDolgozo();
             listBox_Dolgozok.DataSource = dolgozok;
             listBox_Dolgozok.DisplayMember = "dolgozoKiirasa"; //Dolgozo osztályból hivatkozok rá, hogy mi jelenjen meg
             //listBox_Dolgozok.Items.AddRange(dolgozok.ToArray()); ez nem jeleníti meg szépen
-
         }
 
         //ÚJ gombra mit tegyen
@@ -80,6 +80,31 @@ namespace loginForm
             radioButton_Egyeb.Checked = false;
             radioButton_Ferfi.Checked = false;
             radioButton_No.Checked = false;
+        }
+
+        //Listboxban kiválasztás és Groupbox frissítése
+        private void listBox_Dolgozok_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dolgozo kivalasztottDolgozo = (Dolgozo)listBox_Dolgozok.SelectedItem;
+            groupBoxFrissitese(kivalasztottDolgozo);
+        }
+        private void groupBoxFrissitese(Dolgozo kivalasztottDolgozo)
+        {
+            textBox_ID.Text = kivalasztottDolgozo.id.ToString();
+            textBox_Nev.Text = kivalasztottDolgozo.nev;
+            dateTimePicker_Szul.Value = kivalasztottDolgozo.szuletes;
+            if (kivalasztottDolgozo.nem == "nő")
+            {
+                radioButton_No.Checked = true;
+            } 
+            else if (kivalasztottDolgozo.nem=="férfi")
+            {
+                radioButton_Ferfi.Checked = true;
+            } 
+            else 
+            { 
+                radioButton_Egyeb.Checked = true;
+            }
         }
     }
 }
