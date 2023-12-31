@@ -10,7 +10,7 @@ namespace loginForm
     {
         public static FormMain formMain = null;
         public static Adatbazis db = new Adatbazis();
-        private static List<Dolgozo> dolgozok = null;
+        public static List<Dolgozo> dolgozok = null;
 
         /// <summary>
         /// The main entry point for the application.

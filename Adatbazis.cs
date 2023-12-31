@@ -88,6 +88,19 @@ namespace loginForm
             }
             zar();
             return dolgozok;
-        }   
+        }
+        public void updateDolgozo(Dolgozo dolgozo)
+        {
+            command.CommandText = "UPDATE dolgozo SET dolgozonev = @nev, szuletesi_ido = @szuletes, neme = @nem WHERE dolgozoid = @id";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@nev",dolgozo.nev);
+            command.Parameters.AddWithValue("@szuletes",dolgozo.szuletes);
+            command.Parameters.AddWithValue("@nem",dolgozo.nem);
+            command.Parameters.AddWithValue("@id",dolgozo.id);
+
+            nyit();
+            command.ExecuteNonQuery();
+            zar();
+        }
     }
 }

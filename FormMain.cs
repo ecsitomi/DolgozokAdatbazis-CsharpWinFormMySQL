@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
 
 namespace loginForm
 {
@@ -38,10 +39,9 @@ namespace loginForm
             //listBox_Dolgozok.Items.AddRange(dolgozok.ToArray()); ez nem jeleníti meg szépen
         }
 
-        //ÚJ gombra mit tegyen
-        private void újToolStripMenuItem_Click(object sender, EventArgs e)
+        // adatok ellenőrzése a groupboxban
+        private void ellenorzes()
         {
-            // adatok ellenőrzése
             if (string.IsNullOrEmpty(textBox_Nev.Text))
             {
                 MessageBox.Show("Nincs megadva a dolgozó neve!", "Hiányzó adat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -54,7 +54,14 @@ namespace loginForm
                 radioButton_No.Focus();
                 return;
             }
+        }
+
+        //ÚJ gombra mit tegyen
+        private void újToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ellenorzes();
             // adatok kiírása
+            textBox_ID.Text = string.Empty;
             string nev = textBox_Nev.Text;
             DateTime szuletes = dateTimePicker_Szul.Value;
             string nem = string.Empty;
@@ -105,6 +112,28 @@ namespace loginForm
             { 
                 radioButton_Egyeb.Checked = true;
             }
+        }
+        //Dolgozó adatainak módosítása
+        private void módosításToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dolgozo kivalasztottDolgozo = (Dolgozo)listBox_Dolgozok.SelectedItem; //hogy az ID-t beolvassa
+            string nem = kivalasztottDolgozo.nem;
+            if (radioButton_Egyeb.Checked)
+            {
+                nem = "egyéb";
+            }
+            else if (radioButton_Ferfi.Checked)
+            {
+                nem = "férfi";
+            }
+            else
+            {
+                nem = "nő";
+            }
+            ellenorzes();
+            Dolgozo updateDolgozo = new Dolgozo(kivalasztottDolgozo.id, textBox_Nev.Text,dateTimePicker_Szul.Value,nem);
+            Program.db.updateDolgozo(updateDolgozo); //itt történik a módosítás az adatbázis osztályban
+            selectDolgozo(); //frissíti a listát
         }
     }
 }

@@ -40,15 +40,15 @@
             this.kilépésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox_Dolgozok = new System.Windows.Forms.ListBox();
             this.groupBox_Kivalasztott = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox_ID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox_Nev = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker_Szul = new System.Windows.Forms.DateTimePicker();
-            this.radioButton_No = new System.Windows.Forms.RadioButton();
-            this.radioButton_Ferfi = new System.Windows.Forms.RadioButton();
             this.radioButton_Egyeb = new System.Windows.Forms.RadioButton();
+            this.radioButton_Ferfi = new System.Windows.Forms.RadioButton();
+            this.radioButton_No = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker_Szul = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox_Nev = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_ID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox_Kivalasztott.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,7 @@
             this.módosításToolStripMenuItem.Name = "módosításToolStripMenuItem";
             this.módosításToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.módosításToolStripMenuItem.Text = "Módosítás";
+            this.módosításToolStripMenuItem.Click += new System.EventHandler(this.módosításToolStripMenuItem_Click);
             // 
             // kiléptetésToolStripMenuItem
             // 
@@ -107,19 +108,19 @@
             // újToolStripMenuItem1
             // 
             this.újToolStripMenuItem1.Name = "újToolStripMenuItem1";
-            this.újToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.újToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
             this.újToolStripMenuItem1.Text = "Új";
             // 
             // módosításToolStripMenuItem1
             // 
             this.módosításToolStripMenuItem1.Name = "módosításToolStripMenuItem1";
-            this.módosításToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.módosításToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
             this.módosításToolStripMenuItem1.Text = "Módosítás";
             // 
             // törlésToolStripMenuItem
             // 
             this.törlésToolStripMenuItem.Name = "törlésToolStripMenuItem";
-            this.törlésToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.törlésToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.törlésToolStripMenuItem.Text = "Törlés";
             // 
             // kilépésToolStripMenuItem
@@ -155,66 +156,16 @@
             this.groupBox_Kivalasztott.TabStop = false;
             this.groupBox_Kivalasztott.Text = "Kiválasztott dolgozó";
             // 
-            // label1
+            // radioButton_Egyeb
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "id";
-            // 
-            // textBox_ID
-            // 
-            this.textBox_ID.Location = new System.Drawing.Point(46, 24);
-            this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.ReadOnly = true;
-            this.textBox_ID.Size = new System.Drawing.Size(148, 20);
-            this.textBox_ID.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Név";
-            // 
-            // textBox_Nev
-            // 
-            this.textBox_Nev.Location = new System.Drawing.Point(46, 62);
-            this.textBox_Nev.Name = "textBox_Nev";
-            this.textBox_Nev.Size = new System.Drawing.Size(148, 20);
-            this.textBox_Nev.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Szül.";
-            // 
-            // dateTimePicker_Szul
-            // 
-            this.dateTimePicker_Szul.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_Szul.Location = new System.Drawing.Point(47, 101);
-            this.dateTimePicker_Szul.Name = "dateTimePicker_Szul";
-            this.dateTimePicker_Szul.Size = new System.Drawing.Size(147, 20);
-            this.dateTimePicker_Szul.TabIndex = 5;
-            // 
-            // radioButton_No
-            // 
-            this.radioButton_No.AutoSize = true;
-            this.radioButton_No.Location = new System.Drawing.Point(26, 139);
-            this.radioButton_No.Name = "radioButton_No";
-            this.radioButton_No.Size = new System.Drawing.Size(39, 17);
-            this.radioButton_No.TabIndex = 6;
-            this.radioButton_No.TabStop = true;
-            this.radioButton_No.Text = "Nő";
-            this.radioButton_No.UseVisualStyleBackColor = true;
+            this.radioButton_Egyeb.AutoSize = true;
+            this.radioButton_Egyeb.Location = new System.Drawing.Point(132, 139);
+            this.radioButton_Egyeb.Name = "radioButton_Egyeb";
+            this.radioButton_Egyeb.Size = new System.Drawing.Size(55, 17);
+            this.radioButton_Egyeb.TabIndex = 8;
+            this.radioButton_Egyeb.TabStop = true;
+            this.radioButton_Egyeb.Text = "Egyéb";
+            this.radioButton_Egyeb.UseVisualStyleBackColor = true;
             // 
             // radioButton_Ferfi
             // 
@@ -227,16 +178,66 @@
             this.radioButton_Ferfi.Text = "Férfi";
             this.radioButton_Ferfi.UseVisualStyleBackColor = true;
             // 
-            // radioButton_Egyeb
+            // radioButton_No
             // 
-            this.radioButton_Egyeb.AutoSize = true;
-            this.radioButton_Egyeb.Location = new System.Drawing.Point(132, 139);
-            this.radioButton_Egyeb.Name = "radioButton_Egyeb";
-            this.radioButton_Egyeb.Size = new System.Drawing.Size(55, 17);
-            this.radioButton_Egyeb.TabIndex = 8;
-            this.radioButton_Egyeb.TabStop = true;
-            this.radioButton_Egyeb.Text = "Egyéb";
-            this.radioButton_Egyeb.UseVisualStyleBackColor = true;
+            this.radioButton_No.AutoSize = true;
+            this.radioButton_No.Location = new System.Drawing.Point(26, 139);
+            this.radioButton_No.Name = "radioButton_No";
+            this.radioButton_No.Size = new System.Drawing.Size(39, 17);
+            this.radioButton_No.TabIndex = 6;
+            this.radioButton_No.TabStop = true;
+            this.radioButton_No.Text = "Nő";
+            this.radioButton_No.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker_Szul
+            // 
+            this.dateTimePicker_Szul.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_Szul.Location = new System.Drawing.Point(47, 101);
+            this.dateTimePicker_Szul.Name = "dateTimePicker_Szul";
+            this.dateTimePicker_Szul.Size = new System.Drawing.Size(147, 20);
+            this.dateTimePicker_Szul.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Szül.";
+            // 
+            // textBox_Nev
+            // 
+            this.textBox_Nev.Location = new System.Drawing.Point(46, 62);
+            this.textBox_Nev.Name = "textBox_Nev";
+            this.textBox_Nev.Size = new System.Drawing.Size(148, 20);
+            this.textBox_Nev.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Név";
+            // 
+            // textBox_ID
+            // 
+            this.textBox_ID.Location = new System.Drawing.Point(46, 24);
+            this.textBox_ID.Name = "textBox_ID";
+            this.textBox_ID.ReadOnly = true;
+            this.textBox_ID.Size = new System.Drawing.Size(148, 20);
+            this.textBox_ID.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "id";
             // 
             // FormMain
             // 
