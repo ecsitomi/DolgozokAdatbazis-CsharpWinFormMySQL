@@ -24,8 +24,18 @@ namespace loginForm
             dateTimePicker_Szul.MinDate = DateTime.Now.AddYears(-100);
             dateTimePicker_Szul.MaxDate = DateTime.Now.AddYears(-18);
             dateTimePicker_Szul.Value = DateTime.Now.AddYears(-30);
+            listBox_Dolgozok.Items.Clear();
 
-            Program.db.selectDolgozo() // az adatbázis dolgozóit letöltöm egy listába
+            selectDolgozo(); // az adatbázis dolgozóit letöltöm egy listába és a listboxban megjelenítem
+        }
+
+        private void selectDolgozo()
+        {
+            List<Dolgozo> dolgozok = Program.db.selectDolgozo();
+            listBox_Dolgozok.DataSource = dolgozok;
+            listBox_Dolgozok.DisplayMember = "dolgozoKiirasa"; //Dolgozo osztályból hivatkozok rá, hogy mi jelenjen meg
+            //listBox_Dolgozok.Items.AddRange(dolgozok.ToArray()); ez nem jeleníti meg szépen
+
         }
 
         //ÚJ gombra mit tegyen
@@ -61,11 +71,12 @@ namespace loginForm
             Program.db.instertDolgozo(nev, szuletes, nem);
             // adatmezők kiürítése
             adatokTorlese();
+            selectDolgozo(); //ha töltöttél fel új dolgozót akkor frissüljön a megjelenő lista is
         }
         private void adatokTorlese()
         {
             textBox_Nev.Clear();
-            dateTimePicker_Szul.Value= DateTime.Now;
+            dateTimePicker_Szul.Value= DateTime.Now.AddYears(-30);
             radioButton_Egyeb.Checked = false;
             radioButton_Ferfi.Checked = false;
             radioButton_No.Checked = false;

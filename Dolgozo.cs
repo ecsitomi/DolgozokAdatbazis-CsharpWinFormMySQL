@@ -20,5 +20,10 @@ namespace loginForm
             this.szuletes = szuletes;
             this.nem = nem;
         }
+        
+        public string dolgozoKiirasa
+        {
+            get { return $"{id}. {nev}"; }
+        }
     }
 }
