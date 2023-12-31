@@ -78,21 +78,21 @@
             // újToolStripMenuItem
             // 
             this.újToolStripMenuItem.Name = "újToolStripMenuItem";
-            this.újToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.újToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.újToolStripMenuItem.Text = "Új";
             this.újToolStripMenuItem.Click += new System.EventHandler(this.újToolStripMenuItem_Click);
             // 
             // módosításToolStripMenuItem
             // 
             this.módosításToolStripMenuItem.Name = "módosításToolStripMenuItem";
-            this.módosításToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.módosításToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.módosításToolStripMenuItem.Text = "Módosítás";
             this.módosításToolStripMenuItem.Click += new System.EventHandler(this.módosításToolStripMenuItem_Click);
             // 
             // kiléptetésToolStripMenuItem
             // 
             this.kiléptetésToolStripMenuItem.Name = "kiléptetésToolStripMenuItem";
-            this.kiléptetésToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kiléptetésToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.kiléptetésToolStripMenuItem.Text = "Kiléptetés";
             this.kiléptetésToolStripMenuItem.Click += new System.EventHandler(this.kiléptetésToolStripMenuItem_Click);
             // 
@@ -129,6 +129,7 @@
             this.kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
             this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.kilépésToolStripMenuItem.Text = "Kilépés";
+            this.kilépésToolStripMenuItem.Click += new System.EventHandler(this.kilépésToolStripMenuItem_Click);
             // 
             // listBox_Dolgozok
             // 

@@ -143,5 +143,10 @@ namespace loginForm
             Program.db.deleteDolgozo(deleteDolgozoId); //törlés az adatbázis osztályon keresztül
             selectDolgozo(); //lista frissítése
         }
+
+        private void kilépésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
