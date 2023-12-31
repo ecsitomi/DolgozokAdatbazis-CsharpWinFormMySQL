@@ -94,6 +94,7 @@
             this.kiléptetésToolStripMenuItem.Name = "kiléptetésToolStripMenuItem";
             this.kiléptetésToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kiléptetésToolStripMenuItem.Text = "Kiléptetés";
+            this.kiléptetésToolStripMenuItem.Click += new System.EventHandler(this.kiléptetésToolStripMenuItem_Click);
             // 
             // termékToolStripMenuItem
             // 

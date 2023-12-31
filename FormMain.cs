@@ -92,12 +92,12 @@ namespace loginForm
         //Listboxban kiválasztás és Groupbox frissítése
         private void listBox_Dolgozok_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Dolgozo kivalasztottDolgozo = (Dolgozo)listBox_Dolgozok.SelectedItem;
-            groupBoxFrissitese(kivalasztottDolgozo);
+            Dolgozo kivalasztottDolgozo = (Dolgozo)listBox_Dolgozok.SelectedItem; //kattintott dolgozó adatait behozza
+            groupBoxFrissitese(kivalasztottDolgozo); //itt viszi át a groupboxba
         }
         private void groupBoxFrissitese(Dolgozo kivalasztottDolgozo)
         {
-            textBox_ID.Text = kivalasztottDolgozo.id.ToString();
+            textBox_ID.Text = kivalasztottDolgozo.id.ToString(); //gyakorlatilag itt fordítás történik
             textBox_Nev.Text = kivalasztottDolgozo.nev;
             dateTimePicker_Szul.Value = kivalasztottDolgozo.szuletes;
             if (kivalasztottDolgozo.nem == "nő")
@@ -134,6 +134,14 @@ namespace loginForm
             Dolgozo updateDolgozo = new Dolgozo(kivalasztottDolgozo.id, textBox_Nev.Text,dateTimePicker_Szul.Value,nem);
             Program.db.updateDolgozo(updateDolgozo); //itt történik a módosítás az adatbázis osztályban
             selectDolgozo(); //frissíti a listát
+        }
+        //Törlés az adatbázisból
+        private void kiléptetésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dolgozo kivalasztottDolgozo = (Dolgozo)listBox_Dolgozok.SelectedItem; //hogy az ID-t beolvassa
+            ulong deleteDolgozoId = kivalasztottDolgozo.id;
+            Program.db.deleteDolgozo(deleteDolgozoId); //törlés az adatbázis osztályon keresztül
+            selectDolgozo(); //lista frissítése
         }
     }
 }

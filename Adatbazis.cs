@@ -89,7 +89,7 @@ namespace loginForm
             zar();
             return dolgozok;
         }
-        public void updateDolgozo(Dolgozo dolgozo)
+        public void updateDolgozo(Dolgozo dolgozo) //dolgozó módosítása
         {
             command.CommandText = "UPDATE dolgozo SET dolgozonev = @nev, szuletesi_ido = @szuletes, neme = @nem WHERE dolgozoid = @id";
             command.Parameters.Clear();
@@ -100,6 +100,15 @@ namespace loginForm
 
             nyit();
             command.ExecuteNonQuery();
+            zar();
+        }
+        public void deleteDolgozo(ulong id) // dolgozó törlése
+        {
+            command.CommandText = "DELETE FROM dolgozo WHERE dolgozoid = @id";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", id);
+            nyit();
+            command.ExecuteNonQuery(); 
             zar();
         }
     }
