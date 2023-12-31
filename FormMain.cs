@@ -140,13 +140,20 @@ namespace loginForm
         {
             Dolgozo kivalasztottDolgozo = (Dolgozo)listBox_Dolgozok.SelectedItem; //hogy az ID-t beolvassa
             ulong deleteDolgozoId = kivalasztottDolgozo.id;
-            Program.db.deleteDolgozo(deleteDolgozoId); //törlés az adatbázis osztályon keresztül
-            selectDolgozo(); //lista frissítése
+            DialogResult result = MessageBox.Show("Biztos, hogy kilépteti a dolgozót?", "Figyelmeztetés!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes) //legyen egy figyelmeztető üzenet törlés előtt
+            {
+                Program.db.deleteDolgozo(deleteDolgozoId); //törlés az adatbázis osztályon keresztül
+                selectDolgozo(); //lista frissítése
+            }
         }
 
         private void kilépésToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); // csak sima close, sajnos Formok között nem tudok váltani.
+            //próbálkoztam de a vége az lett hogy összeomlott az app
+            //legközelebb...
         }
     }
+    //ui: a termékek menü a jövőben esetleg alkalmas lehet plusz táblázat kapcsolásához
 }
