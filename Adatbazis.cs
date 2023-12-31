@@ -64,7 +64,30 @@ namespace loginForm
             nyit();
             command.ExecuteNonQuery();
             zar();
-
         }
+        public List<Dolgozo> selectDolgozo() //Adatok lekérése az adatbázisból
+        {
+            List<Dolgozo> dolgozok = new List<Dolgozo>(); //a lekért adatokat ide mentjuk dolgozókként
+
+            //ez a select utasítás
+            command.CommandText = "SELECT dolgozoid, dolgozonev, szuletesi_ido, neme FROM dolgozo";
+            nyit();
+
+            using (MySqlDataReader reader = command.ExecuteReader()) //Ez olvassa be és fordítja le az adatbázisból kapott infókat
+            {
+                while (reader.Read()) //alább a lefordítás
+                {
+                    ulong id = Convert.ToUInt64(reader["dolgozoid"]);
+                    string nev = reader["dolgozonev"].ToString();
+                    DateTime szuletes = Convert.ToDateTime(reader["szuletesi_ido"]);
+                    string nem = reader["neme"].ToString();
+
+                    Dolgozo dolgozo = new Dolgozo(id, nev, szuletes, nem);
+                    dolgozok.Add(dolgozo); //mentem a fenti listában
+                }
+            }
+            zar();
+            return dolgozok;
+        }   
     }
 }

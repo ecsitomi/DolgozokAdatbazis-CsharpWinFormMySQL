@@ -20,11 +20,15 @@ namespace loginForm
         private void FormMain_Load(object sender, EventArgs e)
         {
             //Betöltéskor mit tegyen
+            //Beállítja a születési naptár intervallumát
             dateTimePicker_Szul.MinDate = DateTime.Now.AddYears(-100);
             dateTimePicker_Szul.MaxDate = DateTime.Now.AddYears(-18);
             dateTimePicker_Szul.Value = DateTime.Now.AddYears(-30);
+
+            Program.db.selectDolgozo() // az adatbázis dolgozóit letöltöm egy listába
         }
 
+        //ÚJ gombra mit tegyen
         private void újToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // adatok ellenőrzése
@@ -56,6 +60,15 @@ namespace loginForm
             }
             Program.db.instertDolgozo(nev, szuletes, nem);
             // adatmezők kiürítése
+            adatokTorlese();
+        }
+        private void adatokTorlese()
+        {
+            textBox_Nev.Clear();
+            dateTimePicker_Szul.Value= DateTime.Now;
+            radioButton_Egyeb.Checked = false;
+            radioButton_Ferfi.Checked = false;
+            radioButton_No.Checked = false;
         }
     }
 }
